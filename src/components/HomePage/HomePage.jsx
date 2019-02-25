@@ -7,6 +7,8 @@ export class HomePage extends Component {
     restaurants: getRestaurants()
   };
 
+  //mocking allows us to pass sample data into the function getRestaurants().
+
   render() {
     const { restaurants } = this.state;
     return (

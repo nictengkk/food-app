@@ -2,7 +2,7 @@
 import "jest-dom/extend-expect";
 import "react-testing-library/cleanup-after-each";
 import React from "react";
-import { render, getByAltText } from "react-testing-library";
+import { render } from "react-testing-library";
 import Restaurant from "./Restaurant"; //if component has default export, dont need {}.
 
 //define test

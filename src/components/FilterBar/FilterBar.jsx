@@ -10,7 +10,7 @@ function FilterBar(props) {
   const cuisines = ["All", "Western", "Japanese", "Thai", "Chinese"];
 
   return (
-    <div className="d-flex justify-content-center">
+    <div>
       <div className="btn-group" role="group">
         {cuisines.map((cuisine, i) => (
           <button

@@ -28,11 +28,11 @@ beforeEach(() => {
   jest
     .spyOn(RestaurantService, "getRestaurants")
     .mockImplementation(() => sampleData);
-});
+}); //mockImplementation changes the function method of getRestaurants to take data from sampleData, and result in an object called RestaurantService.
 
 afterEach(() => {
   RestaurantService.getRestaurants.mockRestore();
-});
+}); //restores the mocked up function back to its original function.
 
 test("displays list of two restaurants on load", () => {
   const { getAllByText } = render(<HomePage />);
@@ -42,11 +42,11 @@ test("displays list of two restaurants on load", () => {
 });
 
 test("FilterBar renders cuisine list based on selectedCuisineId", () => {
-  //render HomePage
+  //destructure HomePage object when rendered, with the helper methods to be used
   const { getByText, queryByText, getAllByText, getByTestId } = render(
     <HomePage />
   );
-
+  //only recommended for cases where you can't match by text or it doesn't make sense
   fireEvent.click(getByTestId("filter-btn-japanese"));
 
   //positive assertion

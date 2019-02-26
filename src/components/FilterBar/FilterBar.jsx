@@ -15,6 +15,7 @@ function FilterBar(props) {
       <div className="btn-group" role="group">
         {cuisines.map(cuisine => (
           <button
+            data-testid={`filter-btn-${cuisine.name.toLowerCase()}`}
             key={cuisine._id}
             type="button"
             className={getClassName(cuisine._id)}

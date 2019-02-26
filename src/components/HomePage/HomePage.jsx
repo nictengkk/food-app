@@ -10,7 +10,12 @@ class HomePage extends Component {
   state = {
     restaurants: getRestaurants(),
     cuisines: [getDefaultCuisine(), ...getCuisines()],
-    selectedCuisine: null
+    selectedCuisine: null,
+    selectOptions: [
+      { name: "Restaurant Name", value: "name" },
+      { name: "Average Price", value: "averagePrice" }
+    ],
+    selectedSortBy: "name"
   };
 
   handleCuisineSelect = cuisine => {
@@ -25,7 +30,12 @@ class HomePage extends Component {
   };
 
   render() {
-    const { restaurants, cuisines, selectedCuisine } = this.state;
+    const {
+      restaurants,
+      cuisines,
+      selectedCuisine,
+      selectOptions
+    } = this.state;
     const filteredRestaurantList =
       selectedCuisine && selectedCuisine._id
         ? restaurants.filter(res => res.cuisine._id === selectedCuisine._id)
@@ -42,7 +52,10 @@ class HomePage extends Component {
             />
           </div>
           <div className="col-sm-12 col-md-6 mt-3 d-flex justify-content-md-end">
-            <SortBySelect handleSortSelect={this.handleSortSelect} />
+            <SortBySelect
+              handleSortSelect={this.handleSortSelect}
+              options={selectOptions}
+            />
           </div>
         </div>
 

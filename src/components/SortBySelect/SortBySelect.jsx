@@ -1,6 +1,7 @@
 import React from "react";
 
-function SortBySelect(handleSortSelect, selectedSort) {
+const SortBySelect = props => {
+  const { options, handleSortSelect, selectedSort } = props;
   return (
     <div className="d-flex justify-content-center">
       <label className="d-flex mb-0 mr-2">Sort By:</label>
@@ -9,11 +10,14 @@ function SortBySelect(handleSortSelect, selectedSort) {
         onChange={handleSortSelect}
         value={selectedSort}
       >
-        <option value="restaurantName">Restaurant Name</option>
-        <option value="averagePrice">Average Price</option>
+        {options.map((option, index) => (
+          <option key={index} value={option.value}>
+            {option.name}
+          </option>
+        ))}
       </select>
     </div>
   );
-}
+};
 
 export default SortBySelect;

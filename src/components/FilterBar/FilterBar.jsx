@@ -1,25 +1,27 @@
 import React from "react";
 
 function FilterBar(props) {
-  // const { handleClick, cuisines } = props;
+  const { cuisines, handleClick, selectedCuisineId } = props;
 
-  // const getClass = (cuisine, selected) => {
-  //   return "btn btn-outline-primary";
-  // };
+  const getClassName = cuisineId => {
+    return selectedCuisineId === cuisineId
+      ? "btn btn-outline-primary active"
+      : "btn btn-outline-primary";
+  };
 
-  const cuisines = ["All", "Western", "Japanese", "Thai", "Chinese"];
+  // const cuisines = ["All", "Western", "Japanese", "Thai", "Chinese"];
 
   return (
     <div>
       <div className="btn-group" role="group">
-        {cuisines.map((cuisine, i) => (
+        {cuisines.map(cuisine => (
           <button
             key={cuisine._id}
             type="button"
-            className="btn btn-outline-primary"
-            onClick={() => props.handleClick()}
+            className={getClassName(cuisine._id)}
+            onClick={() => handleClick(cuisine._id)}
           >
-            {cuisine}
+            {cuisine.name}
           </button>
         ))}
       </div>

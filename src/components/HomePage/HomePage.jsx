@@ -3,6 +3,7 @@ import { getRestaurants } from "../../services/restaurantService";
 import { getCuisines, getDefaultCuisine } from "../../services/cuisineService";
 import Restaurant from "../Restaurant/Restaurant";
 import FilterBar from "../FilterBar/FilterBar";
+import SortBySelect from "../SortBySelect/SortBySelect";
 import "./HomePage.scss";
 
 class HomePage extends Component {
@@ -19,6 +20,10 @@ class HomePage extends Component {
     });
   };
 
+  handleSortSelect = event => {
+    this.setState({ selectedSort: event.target.value });
+  };
+
   render() {
     const { restaurants, cuisines, selectedCuisine } = this.state;
     const filteredRestaurantList =
@@ -28,13 +33,16 @@ class HomePage extends Component {
 
     return (
       <div className="container">
-        <div className="row">
-          <div className="col-4 mx-auto mt-3">
+        <div className="row justify-content-between align-item-center mt-3">
+          <div className="col-6">
             <FilterBar
               cuisines={cuisines}
               selected={selectedCuisine}
               handleClick={this.handleCuisineSelect}
             />
+          </div>
+          <div className="col-6 d-flex justify-content-md-end">
+            <SortBySelect handleSortSelect={this.handleSortSelect} />
           </div>
         </div>
 

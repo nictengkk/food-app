@@ -10,8 +10,6 @@ function FilterBar(props) {
       : "btn btn-outline-primary";
   };
 
-  // const cuisines = ["All", "Western", "Japanese", "Thai", "Chinese"];
-
   return (
     <div>
       <div className="btn-group" role="group">

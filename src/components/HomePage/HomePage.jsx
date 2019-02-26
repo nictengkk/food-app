@@ -33,7 +33,7 @@ class HomePage extends Component {
 
     return (
       <div className="container">
-        <div className="row justify-content-between align-item-center mt-3">
+        <div className="row justify-content-between align-items-center mt-3">
           <div className="col-6">
             <FilterBar
               cuisines={cuisines}
@@ -41,7 +41,7 @@ class HomePage extends Component {
               handleClick={this.handleCuisineSelect}
             />
           </div>
-          <div className="col-6 d-flex justify-content-md-end">
+          <div className="col-sm-12 col-md-6 mt-3 d-flex justify-content-md-end">
             <SortBySelect handleSortSelect={this.handleSortSelect} />
           </div>
         </div>

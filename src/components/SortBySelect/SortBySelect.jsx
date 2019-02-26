@@ -2,10 +2,10 @@ import React from "react";
 
 function SortBySelect(handleSortSelect, selectedSort) {
   return (
-    <div>
-      <label className="mr-3">Sort By:</label>
+    <div className="d-flex justify-content-center">
+      <label className="d-flex mb-0 mr-2">Sort By:</label>
       <select
-        className="custom-select col-8"
+        className="p-3 col-8 btn btn-primary btn-lg text-light"
         onChange={handleSortSelect}
         value={selectedSort}
       >

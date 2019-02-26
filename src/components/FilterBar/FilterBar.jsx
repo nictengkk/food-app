@@ -2,6 +2,7 @@ import React from "react";
 
 function FilterBar(props) {
   const { cuisines, handleClick, selectedCuisineId } = props;
+  //cuisines is the array of 5 objects.
 
   const getClassName = cuisineId => {
     return selectedCuisineId === cuisineId

@@ -10,21 +10,21 @@ import "bootstrap/dist/css/bootstrap.css";
 
 class HomePage extends Component {
   state = {
-    restaurants: getRestaurants(),
-    cuisine: [getDefaultCuisine(), ...getCuisines()]
+    restaurants: getRestaurants()
+    // cuisines: [getDefaultCuisine(), ...getCuisines()]
   };
 
-  handleClick() {}
+  // handleClick() {}
   //create a method to handleclick
   //sort state by restaurants.cuisine.name
   //return
 
   render() {
-    const { restaurants } = this.state;
+    const { restaurants, cuisines } = this.state;
     return (
-      <div className="container-fluid">
-        <div className="row">
-          <FilterBar handleClick={this.handleClick} />
+      <div className="container">
+        <div className="row d-flex justify-content-center">
+          <FilterBar />
         </div>
 
         <div className="row">

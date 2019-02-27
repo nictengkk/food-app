@@ -20,12 +20,12 @@ class HomePage extends Component {
 
   filterAndSortRestaurantList = () => {
     const { selectedCuisine, restaurants, selectedSort } = this.state;
-    const filteredRestaurantList =
+    const filteredByCuisine =
       selectedCuisine && selectedCuisine._id
         ? restaurants.filter(res => res.cuisine._id === selectedCuisine._id)
         : restaurants;
     //sorting is done after filter as sort is mutative, it will alter the original object.
-    return filteredRestaurantList.sort((a, b) => {
+    return filteredByCuisine.sort((a, b) => {
       if (a[selectedSort] < b[selectedSort]) return -1;
       if (a[selectedSort] > b[selectedSort]) return +1;
       return 0;

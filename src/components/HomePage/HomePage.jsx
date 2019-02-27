@@ -62,7 +62,7 @@ class HomePage extends Component {
               handleClick={this.handleCuisineSelect}
             />
           </div>
-          <div className="col-sm-12 col-md-6 mt-3 d-flex justify-content-md-end">
+          <div className="col-md-6 mt-3 d-flex justify-content-md-end">
             <SortBySelect
               handleSortSelect={this.handleSortSelect}
               options={selectOptions}

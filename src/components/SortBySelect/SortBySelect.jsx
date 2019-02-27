@@ -4,9 +4,9 @@ const SortBySelect = props => {
   const { options, handleSortSelect, selectedSort } = props;
   return (
     <div className="d-flex justify-content-center">
-      <label className="d-flex mb-0 mr-2">Sort By:</label>
+      <label className="mb-0 mr-2">Sort By:</label>
       <select
-        className="p-3 col-8 btn btn-primary btn-lg text-light"
+        className="p-3 btn btn-primary btn-lg text-light"
         onChange={handleSortSelect}
         value={selectedSort}
       >

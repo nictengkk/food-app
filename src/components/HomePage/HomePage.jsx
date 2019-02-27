@@ -15,7 +15,21 @@ class HomePage extends Component {
       { name: "Restaurant Name", value: "name" },
       { name: "Average Price", value: "averagePrice" }
     ],
-    selectedSortBy: "name"
+    selectedSort: "name"
+  };
+
+  filterAndSortRestaurantList = () => {
+    const { selectedCuisine, restaurants, selectedSort } = this.state;
+    const filteredRestaurantList =
+      selectedCuisine && selectedCuisine._id
+        ? restaurants.filter(res => res.cuisine._id === selectedCuisine._id)
+        : restaurants;
+    //sorting is done after filter as sort is mutative, it will alter the original object.
+    return filteredRestaurantList.sort((a, b) => {
+      if (a[selectedSort] < b[selectedSort]) return -1;
+      if (a[selectedSort] > b[selectedSort]) return +1;
+      return 0;
+    });
   };
 
   handleCuisineSelect = cuisine => {
@@ -31,15 +45,12 @@ class HomePage extends Component {
 
   render() {
     const {
-      restaurants,
       cuisines,
       selectedCuisine,
-      selectOptions
+      selectOptions,
+      selectedSort
     } = this.state;
-    const filteredRestaurantList =
-      selectedCuisine && selectedCuisine._id
-        ? restaurants.filter(res => res.cuisine._id === selectedCuisine._id)
-        : restaurants;
+    const filteredList = this.filterAndSortRestaurantList();
 
     return (
       <div className="container">
@@ -55,12 +66,13 @@ class HomePage extends Component {
             <SortBySelect
               handleSortSelect={this.handleSortSelect}
               options={selectOptions}
+              selectedSort={selectedSort}
             />
           </div>
         </div>
 
         <div className="row">
-          {filteredRestaurantList.map(restaurant => (
+          {filteredList.map(restaurant => (
             <div className="card-col" key={restaurant._id}>
               <Restaurant details={restaurant} />
             </div>

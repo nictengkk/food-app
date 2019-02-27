@@ -26,8 +26,14 @@ test("check if Restaurant Name is selected as default", () => {
     { name: "option2", value: "option2Value" }
   ];
 
-  const { getByText, getBySelectText } = render(
-    <SortBySelect options={selectOptions} />
+  const watermelon = "honey";
+
+  const { getBySelectText } = render(
+    <SortBySelect
+      options={selectOptions}
+      selectSort={watermelon}
+      handleSortSelect={() => {}}
+    />
   );
 
   expect(getBySelectText("option1")).toBeVisible();

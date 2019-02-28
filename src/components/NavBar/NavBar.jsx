@@ -1,14 +1,14 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function NavBar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <Link className="navbar-brand" to="/">
+      <NavLink className="navbar-brand" to="/">
         <FontAwesomeIcon className="mr-1" icon="utensils" />
         Food App
-      </Link>
+      </NavLink>
       <button
         className="navbar-toggler"
         type="button"
@@ -22,15 +22,15 @@ function NavBar() {
       </button>
       <div className="collapse navbar-collapse" id="navbarNavDropdown">
         <ul className="navbar-nav">
-          <li className="nav-item active">
-            <Link className="nav-link" to="/admin">
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/admin">
               Admin
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/orders">
+            <NavLink className="nav-link" to="/orders">
               Order
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </div>

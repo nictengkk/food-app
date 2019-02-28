@@ -1,7 +1,7 @@
 import React from "react";
 
 function Select({ name, options }) {
-  const propertyName = `${name.toLowerCase().replace(/\s/, "-")}`;
+  const propertyName = `${name.toLowerCase().replace(/\s/, "-")}`; //replace white space with -.
   return (
     <div>
       <label htmlFor={propertyName}>{name}</label>

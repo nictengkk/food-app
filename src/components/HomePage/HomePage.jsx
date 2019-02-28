@@ -4,6 +4,7 @@ import { getCuisines, getDefaultCuisine } from "../../services/cuisineService";
 import Restaurant from "../Restaurant/Restaurant";
 import FilterBar from "../FilterBar/FilterBar";
 import SortBySelect from "../SortBySelect/SortBySelect";
+
 import "./HomePage.scss";
 
 class HomePage extends Component {

@@ -1,11 +1,15 @@
 import React, { Component } from "react";
-import HomePage from "./components/HomePage/HomePage";
+import Router from "../src/components/Router/Router";
+import NavBar from "../src/components/NavBar/NavBar";
 
 class App extends Component {
   render() {
     return (
-        <HomePage />
-    ) 
+      <React.Fragment>
+        <NavBar />
+        <Router />
+      </React.Fragment>
+    );
   }
 }
 

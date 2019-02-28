@@ -1,11 +1,31 @@
-import React from "react";
+import React, { Component } from "react";
+import RestaurantTable from "../RestaurantTable/RestaurantTable";
+import {
+  getRestaurants,
+  deleteRestaurant
+} from "../../services/restaurantService";
 
-function AdminPage() {
-  return (
-    <div data-testid="admin-page">
-      <h1>Admin Page</h1>
-    </div>
-  )
+class AdminPage extends Component {
+  state = {
+    restaurants: getRestaurants()
+  };
+
+  handleDelete = restaurant => {
+    deleteRestaurant(restaurant);
+    this.setState({ restaurants: getRestaurants() });
+  };
+
+  render() {
+    const { restaurants } = this.state;
+    return (
+      <div>
+        <RestaurantTable
+          restaurants={restaurants}
+          handleDelete={this.handleDelete}
+        />
+      </div>
+    );
+  }
 }
 
 export default AdminPage;

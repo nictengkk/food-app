@@ -57,9 +57,10 @@ class RestaurantForm extends Component {
 
   render() {
     const { cuisines, data } = this.state;
+    const { match } = this.props;
     return (
       <div data-testid="create-page">
-        <h3>New Restaurant</h3>
+        <h3>{match.params.id ? "Edit " : "Create "}Restaurant</h3>
         <form onSubmit={this.handleSubmit}>
           <Input
             name="name"

@@ -1,6 +1,6 @@
 import React from "react";
 
-function Input({ name, label, type = "text", onChange, value}) {
+function Input({ name, label, type = "text", onChange, value }) {
   return (
     <div className="form-group">
       <label htmlFor={`${name}-input`}>{label}</label>
@@ -16,7 +16,6 @@ function Input({ name, label, type = "text", onChange, value}) {
       ) : (
         <input
           type="number"
-          min="1"
           step="0.1"
           className="form-control"
           id={`${name}-input`}

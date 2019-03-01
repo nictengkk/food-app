@@ -1,6 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-function RestaurantTable({ restaurants, handleDelete, handleEdit }) {
+function RestaurantTable({ restaurants, handleDelete }) {
   const sortedList = restaurants.sort((first, second) => {
     if (first.name < second.name) return -1;
     if (first.name > second.name) return 1;
@@ -31,12 +32,12 @@ function RestaurantTable({ restaurants, handleDelete, handleEdit }) {
             <td>{restaurant.cuisine.name}</td>
             <td>${restaurant.averagePrice.toFixed(2)}</td>
             <td>
-              <button
+              <Link
                 className="btn btn-secondary btn-sm"
-                onClick={() => handleEdit(restaurant._id)}
+                to={`/restaurants/${restaurant._id}`}
               >
                 Edit
-              </button>
+              </Link>
             </td>
             <td>
               <button

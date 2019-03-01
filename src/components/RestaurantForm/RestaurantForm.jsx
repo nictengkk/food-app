@@ -21,14 +21,26 @@ export class RestaurantForm extends Component {
     }
   };
 
+  //always attached to a form
   handleSubmit = event => {
     event.preventDefault();
+
     const { data } = this.state;
     const newRestaurants = saveRestaurant(data);
     if (newRestaurants) {
       const { history } = this.props;
       history.push("/");
     }
+  };
+
+  handleSelect = event => {
+    const { data, cuisines } = this.state;
+    const copy = { ...data };
+    const newCuisine = event.target.value;
+    const cuisine = cuisines.find(cuisine => cuisine._id === newCuisine);
+    delete copy.cuisine;
+    copy.cuisine = cuisine;
+    this.setState({ data: copy });
   };
 
   handleChange = event => {
@@ -59,7 +71,12 @@ export class RestaurantForm extends Component {
             type="text"
             handleChange={this.handleChange}
           />
-          <Select name="Cuisine" options={cuisines} />
+          <Select
+            name="Cuisine"
+            options={cuisines}
+            keyName="cuisineId"
+            handleSelect={this.handleSelect}
+          />
           <Input
             name="Average Price"
             type="number"

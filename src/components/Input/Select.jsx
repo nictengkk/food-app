@@ -1,11 +1,16 @@
 import React from "react";
 
-function Select({ name, options }) {
+function Select({ name, options, keyName, handleSelect }) {
   const propertyName = `${name.toLowerCase().replace(/\s/, "-")}`; //replace white space with -.
   return (
     <div>
       <label htmlFor={propertyName}>{name}</label>
-      <select className="custom-select" id={propertyName}>
+      <select
+        className="custom-select"
+        id={propertyName}
+        onChange={handleSelect}
+        name={keyName}
+      >
         <option>Choose One</option>
         {options.map(option => (
           <option key={option._id} value={option._id}>

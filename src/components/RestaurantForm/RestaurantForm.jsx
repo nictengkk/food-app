@@ -24,6 +24,7 @@ class RestaurantForm extends Component {
   };
 
   schema = {
+    _id: Joi.string(),
     name: Joi.string().required(),
     address: Joi.string().required(),
     openingTime: Joi.string().required(),
@@ -34,7 +35,7 @@ class RestaurantForm extends Component {
       .min(1)
       .required(),
     imageUrl: Joi.string()
-      .uri()
+      .uri({ allowRelative: true })
       .required()
   };
 

@@ -95,6 +95,7 @@ class RestaurantForm extends Component {
       averagePrice,
       imageUrl
     } = this.state.data;
+
     return (
       <div data-testid="create-page">
         <h3>

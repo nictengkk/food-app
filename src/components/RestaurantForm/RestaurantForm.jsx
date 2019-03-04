@@ -35,7 +35,7 @@ class RestaurantForm extends Component {
       .min(1)
       .required(),
     imageUrl: Joi.string()
-      .uri({ allowRelative: true })
+      .uri({ allowRelative: true }) //relative url for image, no http:// or https:// required/
       .required()
   };
 
@@ -146,7 +146,9 @@ class RestaurantForm extends Component {
             onChange={this.handleChange}
             value={imageUrl}
           />
-          <button className="btn btn-primary btn-sm">Save</button>
+          <button className="btn btn-primary btn-sm" disabled={this.validate()}>
+            Save
+          </button>
         </form>
       </div>
     );

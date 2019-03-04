@@ -20,11 +20,7 @@ function SelectInput({ name, label, options, onChange, value, error }) {
           </option>
         ))}
       </select>
-      {error && (
-        <div className="alert alert-danger" role="alert">
-          {error.message}
-        </div>
-      )}
+      {error && <div className="alert alert-danger">{error}</div>}
     </div>
   );
 }
